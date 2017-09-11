@@ -25,7 +25,7 @@ SECRET_KEY = '=4ij$2td6wfc9q#0vz!_l-w8bwh9$pd!xn&_0krfxgz@ecoq(9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["https://bloggingworld1.herokuapp.com/"]
 
 
 # Application definition
@@ -118,5 +118,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+
+
+SSTATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'FilesStorage'
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+    #os.path.join(BASE_DIR, 'static'),
+)
